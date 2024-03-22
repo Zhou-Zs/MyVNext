@@ -1,6 +1,7 @@
 ﻿using IdentityService.Domain;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Infrastructure;
 
 namespace IdentityService.Infrastructure
 {
@@ -12,7 +13,7 @@ namespace IdentityService.Infrastructure
         {
             base.OnModelCreating(builder);
             builder.ApplyConfigurationsFromAssembly(GetType().Assembly);
-            builder.Enab
+            builder.EnableSoteDeletionGlobalFilter(); // 全局过滤未软删除的数据
         }
     }
 }

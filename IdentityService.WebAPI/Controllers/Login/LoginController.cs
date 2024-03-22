@@ -74,6 +74,8 @@ namespace IdentityService.WebAPI.Controllers.Login
             }
         }
 
+        [HttpPost]
+        [Authorize]
         public async Task<ActionResult> ChangeMyPassword(ChangeMyPasswordRequest req)
         {
             Guid userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));

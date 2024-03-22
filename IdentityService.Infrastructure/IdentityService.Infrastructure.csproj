@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IdentityServer.Domain\IdentityService.Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

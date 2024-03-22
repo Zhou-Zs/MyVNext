@@ -1,13 +1,26 @@
 ﻿using DomainCommons;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Infrastructure
 {
-    public class EFCoreExtensions
+    public static class EFCoreExtensions
     {
+        /// <summary>
+        /// set global 'IsDeleted=false' queryfilter for every entity
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         public static void EnableSoteDeletionGlobalFilter(this ModelBuilder modelBuilder)
         {
-           var entityTypesHasSoftDeletion =  modelBuilder.Model.GetEntityTypes().Where(e => e.ClrType.IsAssignableTo(typeof(ISoftDelete)));
+           var entityTypesHasSoftDeletion =  modelBuilder.Model.GetEntityTypes()
+                .Where(e => e.ClrType.IsAssignableTo(typeof(ISoftDelete)));
+            foreach (var entityType in entityTypesHasSoftDeletion)
+            {
+                var isDeletedProperty = entityType.FindProperty(nameof(ISoftDelete.IsDeleted));
+                var parameter = Expression.Parameter(entityType.ClrType,"p");
+                var filter = Expression.Lambda(Expression.Not(Expression.Property(parameter, isDeletedProperty.PropertyInfo)), parameter);
+                entityType.SetQueryFilter(filter);
+            }
         }
     }
 }
