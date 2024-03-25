@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityService.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{478AACA5-CF3F-4DAF-949D-A172D7F90997}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyDBConfigProvider", "AnyDBConfigProvider\AnyDBConfigProvider.csproj", "{FB7B19E5-DDB3-49B1-89A9-98B67B65314D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnyDBConfigProvider", "AnyDBConfigProvider\AnyDBConfigProvider.csproj", "{FB7B19E5-DDB3-49B1-89A9-98B67B65314D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommnoInitializer", "CommnoInitializer\CommnoInitializer.csproj", "{A5FD150F-5594-4D3E-9F62-FE054F03F767}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{FB7B19E5-DDB3-49B1-89A9-98B67B65314D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB7B19E5-DDB3-49B1-89A9-98B67B65314D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB7B19E5-DDB3-49B1-89A9-98B67B65314D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5FD150F-5594-4D3E-9F62-FE054F03F767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5FD150F-5594-4D3E-9F62-FE054F03F767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5FD150F-5594-4D3E-9F62-FE054F03F767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5FD150F-5594-4D3E-9F62-FE054F03F767}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{AB28A28F-8204-4BBD-87B9-A222DEB19594} = {B8B7E5A0-099E-4CF3-A581-BEC3D212BB39}
 		{478AACA5-CF3F-4DAF-949D-A172D7F90997} = {B8B7E5A0-099E-4CF3-A581-BEC3D212BB39}
 		{FB7B19E5-DDB3-49B1-89A9-98B67B65314D} = {B8B7E5A0-099E-4CF3-A581-BEC3D212BB39}
+		{A5FD150F-5594-4D3E-9F62-FE054F03F767} = {B8B7E5A0-099E-4CF3-A581-BEC3D212BB39}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {77F5BE7F-6227-4077-B990-71688BB55399}
