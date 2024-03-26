@@ -9,12 +9,12 @@
     }
   },
   "profiles": {
-    "http": {
+    "IdentityService.WebAPI": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:5139",
+      "applicationUrl": "http://localhost:50402",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

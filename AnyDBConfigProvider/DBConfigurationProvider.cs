@@ -74,9 +74,8 @@ namespace AnyDBConfigProvider
             {
                 lockObj.EnterWriteLock();
                 clonedData = Data.Clone();
-                Data.Clear();
-
                 string tableName = _options.TableName;
+                Data.Clear();
                 using (var conn = _options.CreateDbConnection())
                 {
                     conn.Open();
