@@ -19,9 +19,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnyDBConfigProvider", "AnyDBConfigProvider\AnyDBConfigProvider.csproj", "{FB7B19E5-DDB3-49B1-89A9-98B67B65314D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommnoInitializer", "CommnoInitializer\CommnoInitializer.csproj", "{A5FD150F-5594-4D3E-9F62-FE054F03F767}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommnoInitializer", "CommnoInitializer\CommnoInitializer.csproj", "{A5FD150F-5594-4D3E-9F62-FE054F03F767}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.csproj", "{B3A38A33-7299-43B9-85AB-F575C151EA27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons", "Commons\Commons.csproj", "{B3A38A33-7299-43B9-85AB-F575C151EA27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{72F68A22-F8BE-40FA-99FC-84F25050DECF}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Commons;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using JWT;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace CommnoInitializer
 {
@@ -34,12 +36,28 @@ namespace CommnoInitializer
 
             services.AddAllDbContexts(ctx =>
             {
-                //连接字符串如果放到appsettings.json中，会有泄密的风险
-                //如果放到UserSecrets中，每个项目都要配置，很麻烦
-                //因此这里推荐放到环境变量中。
+                // 连接字符串如果放到appsettings.json中，会有泄密的风险
+                // 如果放到UserSecrets中，每个项目都要配置，很麻烦
+                // 因此这里推荐放到环境变量中。
                 string connStr = configuration.GetValue<string>("DefaultDB:ConnStr");
                 ctx.UseSqlServer(connStr);
             }, assmblies);
+
+            // 开始:Authentication,Authorization
+            // 只要需要校验Authentication报文头的地方（非IdentityService.WebAPI项目）也需要启用这些
+            // IdentityService项目还需要启用AddIdentityCore
+            builder.Services.AddAuthorization();
+            builder.Services.AddAuthentication();
+
+            var jwtOpt = configuration.GetSection("JWT").Get<JWTOptions>();
+            builder.Services.AddJWTAuthentication(jwtOpt);
+
+            // 启用Swagger中的【Authorize】按钮。这样就不用每个项目的AddSwaggerGen中单独配置了
+            builder.Services.Configure<SwaggerGenOptions>(c => { 
+                
+            });
+
+
         }
 
     }
