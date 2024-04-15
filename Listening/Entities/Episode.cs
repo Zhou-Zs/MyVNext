@@ -1,0 +1,201 @@
+﻿using DomainCommons;
+using Listening.Domain.Evnets;
+using Listening.Domain.Subtitles;
+
+namespace Listening.Domain.Entities
+{
+    /// <summary>
+    /// 集
+    /// </summary>
+    public record Episode : AggregateRootEntity, IAggregateRoot
+    {
+        public Episode() { }
+
+        /// <summary>
+        ///  序号
+        /// </summary>
+        public int SequenceNumber { get; private set; }
+
+        /// <summary>
+        /// 标题
+        /// </summary>
+        public MultilingualString Name { get; private set; }
+
+        /// <summary>
+        /// 专辑Id，因为Episode和Album都是聚合根，因此不能直接做对象引用。
+        /// </summary>
+        public Guid AlbumId { get; private set; }
+
+        /// <summary>
+        /// 音频路径
+        /// </summary>
+        public Uri AudioUrl { get; private set; }
+
+        /// <summary>
+        ///这是音频的实际长度（秒）
+        ///因为IE、旧版Edge、部分手机内置浏览器(小米等)中对于部分音频,
+        ///计算的duration以及currentTime和实际的不一致，因此需要根据服务器端
+        ///计算出来的实际长度，在客户端做按比例校正
+        ///所以服务器端需要储存这个，以便给到浏览器
+        /// </summary>
+        public double DurationInSecond { get; private set; }
+
+        /// <summary>
+        /// 原文字幕内容
+        /// </summary>
+        public string Subtitle { get; private set; }
+
+        /// <summary>
+        /// 原文字幕格式
+        /// </summary>
+        public string SubtitleType { get; private set; }
+
+        /// <summary>
+        /// 用户是否可见（如果发现内部有问题，就先隐藏）
+        /// </summary>
+        public bool IsVisible { get; private set; }
+
+        public Episode ChangeSequenceNumber(int value)
+        { 
+            this.SequenceNumber = value;
+            this.AddDomainEventIfAbsent(new EpisodeUpdatedEvent(this));
+            return this;
+        }
+
+        public Episode ChangeName(MultilingualString value)
+        { 
+            this.Name = value;
+            this.AddDomainEventIfAbsent(new EpisodeUpdatedEvent(this));
+            return this;
+        }
+
+        public Episode ChangeSubtitle(string subtitleType, string subtitle)
+        {
+            var parser = SubtitleParserFactory.GetParser(subtitleType);
+            if (parser == null)
+            {
+                throw new ArgumentOutOfRangeException(nameof(subtitleType), $"subtitleType={subtitleType} is not supported.");
+            }
+            this.Subtitle = subtitle;
+            this.SubtitleType = subtitleType;
+            this.AddDomainEventIfAbsent(new EpisodeUpdatedEvent(this));
+
+            return this;
+        }
+
+        public Episode Hide()
+        {
+            this.IsVisible = false;
+            this.AddDomainEventIfAbsent(new EpisodeUpdatedEvent(this));
+            return this;
+        }
+        public Episode Show()
+        {
+            this.IsVisible = true;
+            this.AddDomainEventIfAbsent(new EpisodeUpdatedEvent(this));
+            return this;
+        }
+
+        public override void SoftDelete()
+        {
+            base.SoftDelete();
+            this.AddDomainEvent(new EpisodeDeletedEvent(this.Id));
+        }
+
+        public class Builder
+        {
+            private Guid id;
+            private int sequenceNumber;
+            private MultilingualString name;
+            private Guid albumId;
+            private Uri audioUrl;
+            private double durationInSecond;
+            private string subtitle;
+            private string subtitleType;
+            public Builder Id(Guid value)
+            {
+                this.id = value;
+                return this;
+            }
+            public Builder SequenceNumber(int value)
+            {
+                this.sequenceNumber = value;
+                return this;
+            }
+            public Builder Name(MultilingualString value)
+            {
+                this.name = value;
+                return this;
+            }
+            public Builder AlbumId(Guid value)
+            {
+                this.albumId = value;
+                return this;
+            }
+            public Builder AudioUrl(Uri value)
+            {
+                this.audioUrl = value;
+                return this;
+            }
+            public Builder DurationInSecond(double value)
+            {
+                this.durationInSecond = value;
+                return this;
+            }
+            public Builder Subtitle(string value)
+            {
+                this.subtitle = value;
+                return this;
+            }
+            public Builder SubtitleType(string value)
+            {
+                this.subtitleType = value;
+                return this;
+            }
+            public Episode Build()
+            {
+                if (id == Guid.Empty)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(id));
+                }
+                if (name == null)
+                {
+                    throw new ArgumentNullException(nameof(name));
+                }
+                if (albumId == Guid.Empty)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(albumId));
+                }
+                if (audioUrl == null)
+                {
+                    throw new ArgumentNullException(nameof(audioUrl));
+                }
+                if (durationInSecond <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(durationInSecond));
+                }
+                if (subtitle == null)
+                {
+                    throw new ArgumentNullException(nameof(subtitle));
+                }
+                if (subtitleType == null)
+                {
+                    throw new ArgumentNullException(nameof(subtitleType));
+                }
+                Episode e = new Episode();
+                e.Id = id;
+                e.SequenceNumber = sequenceNumber;
+                e.Name = name;
+                e.AlbumId = albumId;
+                e.AudioUrl = audioUrl;
+                e.DurationInSecond = durationInSecond;
+                e.Subtitle = subtitle;
+                e.SubtitleType = subtitleType;
+                e.IsVisible = true;
+                e.AddDomainEvent(new EpisodeCreatedEvent(e));
+                return e;
+            }
+        }
+
+    }
+}

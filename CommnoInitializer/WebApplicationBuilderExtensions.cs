@@ -43,7 +43,8 @@ namespace CommnoInitializer
                 ctx.UseSqlServer(connStr);
             }, assmblies);
 
-            // 开始:Authentication,Authorization
+            #region 开始:Authentication,Authorization
+
             // 只要需要校验Authentication报文头的地方（非IdentityService.WebAPI项目）也需要启用这些
             // IdentityService项目还需要启用AddIdentityCore
             builder.Services.AddAuthorization();
@@ -53,9 +54,11 @@ namespace CommnoInitializer
             builder.Services.AddJWTAuthentication(jwtOpt);
 
             // 启用Swagger中的【Authorize】按钮。这样就不用每个项目的AddSwaggerGen中单独配置了
-            builder.Services.Configure<SwaggerGenOptions>(c => { 
-                
+            builder.Services.Configure<SwaggerGenOptions>(c => {
+                c.AddAuthenticationHeader();
             });
+
+            #endregion 结束:Authentication,Authorization
 
 
         }
