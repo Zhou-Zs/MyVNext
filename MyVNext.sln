@@ -38,6 +38,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Listening", "Listening", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listening.Domain", "Listening\Listening.Domain.csproj", "{A3863935-6527-4BBC-AA7B-013DF68263A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listening.Infrastructure", "Listening.Infrastructure\Listening.Infrastructure.csproj", "{513FA75B-3356-4F5C-876E-26651DD9C113}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +90,10 @@ Global
 		{A3863935-6527-4BBC-AA7B-013DF68263A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3863935-6527-4BBC-AA7B-013DF68263A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3863935-6527-4BBC-AA7B-013DF68263A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{513FA75B-3356-4F5C-876E-26651DD9C113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{513FA75B-3356-4F5C-876E-26651DD9C113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{513FA75B-3356-4F5C-876E-26651DD9C113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{513FA75B-3356-4F5C-876E-26651DD9C113}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,6 +110,7 @@ Global
 		{B3A38A33-7299-43B9-85AB-F575C151EA27} = {B8B7E5A0-099E-4CF3-A581-BEC3D212BB39}
 		{6FEEEC2A-6C0C-4D60-A331-28DC4337F470} = {2A3A42A7-32EE-4913-8063-E4F61CEB4AE4}
 		{A3863935-6527-4BBC-AA7B-013DF68263A9} = {E83BAD68-449B-4EFC-9F6A-A8C9CC1D536D}
+		{513FA75B-3356-4F5C-876E-26651DD9C113} = {E83BAD68-449B-4EFC-9F6A-A8C9CC1D536D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {77F5BE7F-6227-4077-B990-71688BB55399}
