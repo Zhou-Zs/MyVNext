@@ -32,13 +32,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityService", "Identity
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FileService", "FileService", "{2A3A42A7-32EE-4913-8063-E4F61CEB4AE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileService.Domain", "FileService.Domain\FileService.Domain.csproj", "{6FEEEC2A-6C0C-4D60-A331-28DC4337F470}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileService.Domain", "FileService.Domain\FileService.Domain.csproj", "{6FEEEC2A-6C0C-4D60-A331-28DC4337F470}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Listening", "Listening", "{E83BAD68-449B-4EFC-9F6A-A8C9CC1D536D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listening.Domain", "Listening\Listening.Domain.csproj", "{A3863935-6527-4BBC-AA7B-013DF68263A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Listening.Domain", "Listening\Listening.Domain.csproj", "{A3863935-6527-4BBC-AA7B-013DF68263A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listening.Infrastructure", "Listening.Infrastructure\Listening.Infrastructure.csproj", "{513FA75B-3356-4F5C-876E-26651DD9C113}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Listening.Infrastructure", "Listening.Infrastructure\Listening.Infrastructure.csproj", "{513FA75B-3356-4F5C-876E-26651DD9C113}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listening.Admin.WebAPI", "Listening.Admin.WebAPI\Listening.Admin.WebAPI.csproj", "{93FA2028-F776-4C24-BE57-C6AABB1327E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETCore", "ASPNETCore\ASPNETCore.csproj", "{C6A2FB95-48F4-465E-9214-1D786614B73F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +98,14 @@ Global
 		{513FA75B-3356-4F5C-876E-26651DD9C113}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{513FA75B-3356-4F5C-876E-26651DD9C113}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{513FA75B-3356-4F5C-876E-26651DD9C113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93FA2028-F776-4C24-BE57-C6AABB1327E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93FA2028-F776-4C24-BE57-C6AABB1327E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93FA2028-F776-4C24-BE57-C6AABB1327E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93FA2028-F776-4C24-BE57-C6AABB1327E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A2FB95-48F4-465E-9214-1D786614B73F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A2FB95-48F4-465E-9214-1D786614B73F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A2FB95-48F4-465E-9214-1D786614B73F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A2FB95-48F4-465E-9214-1D786614B73F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +123,8 @@ Global
 		{6FEEEC2A-6C0C-4D60-A331-28DC4337F470} = {2A3A42A7-32EE-4913-8063-E4F61CEB4AE4}
 		{A3863935-6527-4BBC-AA7B-013DF68263A9} = {E83BAD68-449B-4EFC-9F6A-A8C9CC1D536D}
 		{513FA75B-3356-4F5C-876E-26651DD9C113} = {E83BAD68-449B-4EFC-9F6A-A8C9CC1D536D}
+		{93FA2028-F776-4C24-BE57-C6AABB1327E3} = {E83BAD68-449B-4EFC-9F6A-A8C9CC1D536D}
+		{C6A2FB95-48F4-465E-9214-1D786614B73F} = {B8B7E5A0-099E-4CF3-A581-BEC3D212BB39}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {77F5BE7F-6227-4077-B990-71688BB55399}
