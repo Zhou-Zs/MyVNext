@@ -22,5 +22,10 @@ namespace Infrastructure
                 entityType.SetQueryFilter(filter);
             }
         }
+
+        public static IQueryable<T> Query<T>(this DbContext ctx) where T : class, IEntity
+        {
+            return ctx.Set<T>().AsNoTracking();
+        }
     }
 }

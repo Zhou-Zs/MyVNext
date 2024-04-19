@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace MediatR
 {
-    public static  class MediatorExtensions
+    public static class MediatorExtensions
     {
         /// <summary>
         /// 把rootAssembly及直接或者间接引用的程序集（排除系统程序集）中的MediatR 相关类进行注册
@@ -14,7 +14,7 @@ namespace MediatR
         /// <param name="services"></param>
         /// <param name="assemblies"></param>
         /// <returns></returns>
-        public static IServiceCollection AddMediatR(this IServiceCollection services,IEnumerable<Assembly> assemblies)
+        public static IServiceCollection AddMediatR(this IServiceCollection services, IEnumerable<Assembly> assemblies)
         {
             return services.AddMediatR(assemblies.ToArray());
         }
@@ -26,7 +26,7 @@ namespace MediatR
             var domainEvents = domainEntities.SelectMany(x => x.Entity.GetDomainEvents()).ToList();
 
             // 加ToList()是为立即加载，否则会延迟执行，到foreach的时候已经被ClearDomainEvents()了
-            domainEntities.ToList().ForEach(entity => entity.Entity.ClearDomainEvents()); 
+            domainEntities.ToList().ForEach(entity => entity.Entity.ClearDomainEvents());
 
             foreach (var domainEvent in domainEvents)
             {

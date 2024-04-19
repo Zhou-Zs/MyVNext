@@ -8,6 +8,9 @@ using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using JWT;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using ASPNETCore;
 
 namespace CommnoInitializer
 {
@@ -60,7 +63,12 @@ namespace CommnoInitializer
 
             #endregion 结束:Authentication,Authorization
 
+            services.AddMediatR(assmblies);
 
+            services.Configure<MvcOptions>(options =>
+            {
+                options.Filters.Add<UnitOfWorkFilter>();
+            });
         }
 
     }

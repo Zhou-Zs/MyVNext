@@ -8,14 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ASPNETCore\ASPNETCore.csproj" />
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
-    <ProjectReference Include="..\Listening.Infrastructure\Listening.Infrastructure.csproj" />
+    <ProjectReference Include="..\DomainCommons\DomainCommons.csproj" />
     <ProjectReference Include="..\Listening\Listening.Domain.csproj" />
   </ItemGroup>
 

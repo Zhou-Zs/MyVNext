@@ -5,10 +5,10 @@ namespace ASPNETCore
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public class UnitOfWorkAttribute : Attribute
     {
-        public Type[] DbContextType { get; init; }
+        public Type[] DbContextTypes { get; init; }
         public UnitOfWorkAttribute(params Type[] dbContextTypes)
         {
-            DbContextType = dbContextTypes;
+            DbContextTypes = dbContextTypes;
             foreach (var type in dbContextTypes)
             {
                 if (!typeof(DbContext).IsAssignableFrom(type))
